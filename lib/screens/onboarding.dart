@@ -26,7 +26,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
       body: Column(
         children: [
           Expanded(
@@ -83,7 +82,7 @@ class onBoardingNavigation extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: const Color(0xFF376AED)),
+                    backgroundColor: const Color(0xFF0E5120)),
                 child: const Text(
                   'Get Started',
                   style: TextStyle(color: Colors.white),
@@ -95,7 +94,11 @@ class onBoardingNavigation extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 10),
             color: Colors.white,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(
+                  width: 20,
+                ),
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -103,11 +106,15 @@ class onBoardingNavigation extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Home()),
                     );
                   },
-                  child: Text('Skip'),
+                  child: const Text(
+                    'SKIP',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  width: 50,
-                ),
+                const Spacer(),
                 ...List.generate(
                   demo_data.length,
                   (index) => Padding(
@@ -118,27 +125,22 @@ class onBoardingNavigation extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                SizedBox(
-                  height: 60,
-                  width: 88,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _pageController.nextPage(
-                          duration: const Duration(milliseconds: 1000),
-                          curve: Curves.ease);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: const Color(0xFF376AED)),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
+                TextButton(
+                  onPressed: () {
+                    _pageController.nextPage(
+                        duration: const Duration(milliseconds: 1000),
+                        curve: Curves.ease);
+                  },
+                  child: const Text(
+                    'NEXT',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
                     ),
                   ),
                 ),
                 const SizedBox(
-                  width: 50,
+                  width: 20,
                 ),
               ],
             ),
@@ -159,9 +161,9 @@ class DotIndicator extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       height: 8,
-      width: isActive ? 18 : 12,
+      width: isActive ? 10 : 10,
       decoration: BoxDecoration(
-          color: isActive ? const Color(0xFF376AED) : Colors.grey,
+          color: isActive ? const Color(0xFF0E5120) : Colors.grey,
           borderRadius: const BorderRadius.all(Radius.circular(12))),
     );
   }
@@ -177,27 +179,32 @@ class Onboard {
 
 final List<Onboard> demo_data = [
   Onboard(
-    title: 'Health promotion and SRH counselling services',
+    title: 'Health promotion and \n'
+        'SRH counselling services',
     image: 'assets/images/13.png',
     note: '',
   ),
   Onboard(
-    title: 'Contraceptive counselling and services',
+    title: 'Contraceptive counselling\n'
+        'and services',
     image: 'assets/images/13.png',
     note: '',
   ),
   Onboard(
-    title: 'Comprehensive abortion care',
+    title: 'Comprehensive abortion\n'
+        'care',
     image: 'assets/images/13.png',
     note: '',
   ),
   Onboard(
-    title: 'Prevention and treatment of STIs/HIV',
+    title: 'Prevention & treatment\n'
+        'of STIs/HIV',
     image: 'assets/images/14.png',
     note: '',
   ),
   Onboard(
-    title: 'Maternal and newborn health care services',
+    title: 'Maternal & newborn\n'
+        'health care services',
     image: 'assets/images/15.png',
     note: '',
   ),
@@ -223,15 +230,30 @@ class onboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          title,
-          style: TextStyle(fontFamily: 'Urbanist-Italic', fontSize: 24),
+        const SizedBox(
+          height: 100,
         ),
-        Image.asset(image),
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'Poppins-SemiBold',
+              fontSize: 22,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Center(
+            child: Image.asset(image),
+          ),
+        ),
         Text(
           'Read the article you want \n'
           'instantly',
-          style: TextStyle(fontFamily: 'Urbanist-Italic', fontSize: 24),
+          style: TextStyle(fontFamily: 'Urbanist-Regular', fontSize: 17),
         ),
       ],
     );

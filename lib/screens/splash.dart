@@ -1,7 +1,6 @@
+import 'package:care_provider_on_adolescent_girls_mobile/screens/home.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/screens/onboarding.dart';
 import 'package:flutter/material.dart';
-
-import 'onboarding.dart';
-
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -17,9 +16,7 @@ class _SplashState extends State<Splash> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (context) =>
-            const OnBoarding()), // Replace MainPage with your desired page
+        MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
       );
     });
   }
@@ -29,9 +26,7 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       backgroundColor: Colors.white70,
       body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white70
-        ),
+        decoration: const BoxDecoration(color: Colors.white70),
         child: Center(
           child: Container(
             width: 250,

@@ -48,6 +48,15 @@ class _PDFView extends State<PDFView> {
               }
             },
           ),
+          IconButton(
+            icon: const Icon(
+              Icons.zoom_in,
+              color: Color.fromARGB(255, 39, 39, 39),
+            ),
+            onPressed: () {
+              _pdfViewerController.zoomLevel = 2;
+            },
+          ),
           Visibility(
             visible: _searchResult.hasResult,
             child: IconButton(

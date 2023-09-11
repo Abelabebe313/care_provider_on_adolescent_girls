@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -108,7 +109,17 @@ class _HomeState extends State<Home> {
                           size: 32,
                         ),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PDFView(
+                              title: 'Introduction',
+                              fileName: 'introduction_file_0.pdf',
+                            ), // Navigate to PDFViewPage
+                          ),
+                        );
+                        },
                       ),
                     ),
                   ),

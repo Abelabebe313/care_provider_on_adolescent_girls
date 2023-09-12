@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:care_provider_on_adolescent_girls_mobile/screens/about/search/search_screen.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +101,7 @@ class _HomeState extends State<Home> {
   }
 
   void _startAutoScroll() {
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (_currentPage < 4) {
         _currentPage++;
       } else {
@@ -108,7 +109,7 @@ class _HomeState extends State<Home> {
       }
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
       );
     });
@@ -136,38 +137,54 @@ class _HomeState extends State<Home> {
               ),
               // Search Bar
               Center(
-                child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search an article...",
-                      hintStyle: TextStyle(
-                        fontFamily: 'Poppins-ExtraLight',
-                        color: Colors.grey.shade400,
-                        fontSize: 15,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SearchResult(
+                            keyword: '',
+                            data_list:
+                                data_list), // Replace SearchResult() with your desired page
                       ),
-                      contentPadding: const EdgeInsets.only(
-                          left: 10, top: 12, bottom: 12), // Add padding here
-                      border: InputBorder.none,
-                      suffixIcon: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF0E5120),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.search,
-                            size: 32,
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: IgnorePointer(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Search here...",
+                          hintStyle: TextStyle(
+                            fontFamily: 'Poppins-ExtraLight',
+                            color: Colors.grey.shade400,
+                            fontSize: 15,
                           ),
-                          color: Colors.white,
-                          onPressed: () {},
+                          contentPadding: const EdgeInsets.only(
+                              left: 10,
+                              top: 12,
+                              bottom: 12), // Add padding here
+                          border: InputBorder.none,
+                          suffixIcon: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF0E5120),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.search,
+                                size: 32,
+                              ),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -180,11 +197,11 @@ class _HomeState extends State<Home> {
               ),
 
               // Slider poster
-              Container(
+              SizedBox(
                 height: 130,
                 child: PageView(
                   controller: _pageController,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   // scrollDirection: Axis.horizontal,
                   children: [
                     SizedBox(

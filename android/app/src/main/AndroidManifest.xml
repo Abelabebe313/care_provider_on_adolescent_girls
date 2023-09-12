@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> 
 
     <application
-        android:label="care_provider_on_adolescent_girls_mobile"
+        android:label="CAGH"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

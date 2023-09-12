@@ -127,6 +127,7 @@ class _PDFViewState extends State<PDFView> {
   @override
   void initState() {
     _pdfViewerController = PdfViewerController();
+
     _searchResult = PdfTextSearchResult();
     initTts();
     super.initState();
@@ -224,13 +225,56 @@ class _PDFViewState extends State<PDFView> {
     super.dispose();
   }
 
+  String keyword = ''; // Initialize the keyword
+
+  Future<void> _showSearchDialog() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Search Content'),
+          content: TextField(
+            decoration: const InputDecoration(hintText: 'Enter keyword'),
+            onChanged: (value) {
+              setState(() {
+                keyword = value;
+              });
+            },
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Search'),
+              onPressed: () {
+                // Update _pdfViewerController.searchText with the entered keyword
+                _pdfViewerController.searchText(keyword,
+                    searchOption: TextSearchOption.caseSensitive);
+
+                // Close the dialog
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        body: SafeArea(
+            child: Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: const TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
           IconButton(
@@ -239,8 +283,7 @@ class _PDFViewState extends State<PDFView> {
               color: Color.fromARGB(255, 15, 15, 15),
             ),
             onPressed: () {
-              _searchResult = _pdfViewerController.searchText('',
-                  searchOption: TextSearchOption.caseSensitive);
+              _showSearchDialog();
               if (kIsWeb) {
                 if (mounted) {
                   setState(() {});
@@ -254,6 +297,14 @@ class _PDFViewState extends State<PDFView> {
               }
             },
           ),
+          IconButton(
+              icon: const Icon(
+                Icons.zoom_in,
+                color: Color.fromARGB(255, 15, 15, 15),
+              ),
+              onPressed: () {
+                _pdfViewerController.zoomLevel = 2;
+              }),
           IconButton(
             icon: Icon(
               ttsState == TtsState.playing ? Icons.pause : Icons.volume_up,
@@ -309,12 +360,19 @@ class _PDFViewState extends State<PDFView> {
           ),
         ],
       ),
-      body: SfPdfViewer.asset(
-        'assets/files/${widget.fileName}',
-        controller: _pdfViewerController,
-        currentSearchTextHighlightColor: Colors.yellow.withOpacity(0.6),
-        otherSearchTextHighlightColor: Colors.yellow.withOpacity(0.3),
+      body: Container(
+        color: Colors.white,
+        child: SfPdfViewer.asset('assets/files/${widget.fileName}',
+            maxZoomLevel: 3,
+            pageSpacing: 3,
+            controller: _pdfViewerController,
+            currentSearchTextHighlightColor: Colors.yellow.withOpacity(0.6),
+            otherSearchTextHighlightColor: Colors.yellow.withOpacity(0.3),
+            //   pageLayoutMode: PdfPageLayoutMode.single,
+            canShowScrollHead: true,
+            canShowScrollStatus: true,
+            canShowPaginationDialog: true),
       ),
-    );
+    )));
   }
 }

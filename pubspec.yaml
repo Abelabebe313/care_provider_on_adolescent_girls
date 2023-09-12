@@ -15,6 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   syncfusion_flutter_pdfviewer: ^22.2.12
+  flutter_tts: ^3.8.2
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/files/
+    - assets/tts/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,7 +1,7 @@
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
 
-Widget homeCards(List<String> title_list, BuildContext context) {
+Widget homeCards(List<Map<String, dynamic>> data_list, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(left: 10, right: 10),
     child: Container(
@@ -9,8 +9,9 @@ Widget homeCards(List<String> title_list, BuildContext context) {
       width: MediaQuery.of(context).size.width * 0.93,
       height: MediaQuery.of(context).size.height * 0.58,
       child: ListView.builder(
-        itemCount: title_list.length,
+        itemCount: data_list.length,
         itemBuilder: (context, index) {
+          final data = data_list[index];
           return Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: InkWell(
@@ -19,7 +20,7 @@ Widget homeCards(List<String> title_list, BuildContext context) {
                   context,
                   MaterialPageRoute(
                     builder: (context) => PDFView(
-                      title: title_list[index].toUpperCase(),
+                      title: data['title'].toUpperCase(),
                       fileName: 'introduction_file_0.pdf',
                     ), // Navigate to PDFViewPage
                   ),
@@ -51,14 +52,14 @@ Widget homeCards(List<String> title_list, BuildContext context) {
                       const SizedBox(width: 10),
                       SizedBox(
                         width: 110,
-                        child: Image.asset('assets/images/counselling.png'),
+                        child: Image.asset(data['image']),
                       ),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Text(
-                            textAlign: TextAlign.left,
-                            title_list[index].toUpperCase(),
+                            // textAlign: TextAlign.left,
+                            data['title'].toUpperCase(),
                             maxLines: 4,
                             style: const TextStyle(
                                 fontSize: 17, fontFamily: "Urbanist-Regular"),

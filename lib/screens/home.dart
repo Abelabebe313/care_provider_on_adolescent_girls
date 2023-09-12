@@ -11,19 +11,74 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> titleList = [
-    'INTRODUCTION',
-    'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
-    'CONTRACEPTIVE COUNSELLING AND SERVICES',
-    'COMPREHENSIVE ABORTION CARE',
-    'Sexually Transmitted Infections Preventions, Control and Treatment',
-    'HIV PREVENTION, CONTROL AND TREATMENT',
-    'Antenatal, Intrapartum and Postnatal Care Services',
-    'GENDER BASED VIOLENCE SERVICES',
-    'ADOLESCENT NUTRITION SERVICES',
-    'MONITORING',
-    'SUMMARY',
-  ];
+final List<Map<String, dynamic>> data_list = [
+  {
+    'title': 'INTRODUCTION',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'COMPREHENSIVE ABORTION CARE',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'Sexually-Transmitted Infections Preventions, Control and Treatment',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'Antenatal, Intrapartum and Postnatal Care Services',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'GENDER–BASED VIOLENCE SERVICES',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'ADOLESCENT NUTRITION SERVICES',
+    'image': 'assets/images/undraw_Office_snack_re_l162.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'MONITORING',
+    'image': 'assets/images/undraw_medicine_b1ol.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+  {
+    'title': 'SUMMARY',
+    'image': 'assets/images/counselling.png',
+    'filename': 'introduction_file_0.pdf',
+    'tts_file_name':'chapter_1.txt',
+  },
+];
 
   late PageController _pageController;
   late Timer _timer;
@@ -71,7 +126,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: Container(
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -128,11 +183,11 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-
+        
               const SizedBox(
                 height: 10,
               ),
-
+        
               // Slider poster
               Container(
                 height: 130,
@@ -177,7 +232,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-
+        
               const SizedBox(
                 height: 10,
               ),
@@ -195,7 +250,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              homeCards(titleList, context),
+              homeCards(data_list, context),
             ],
           ),
         ));

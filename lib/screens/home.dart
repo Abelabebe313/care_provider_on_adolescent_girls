@@ -11,74 +11,75 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-final List<Map<String, dynamic>> data_list = [
-  {
-    'title': 'INTRODUCTION',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'COMPREHENSIVE ABORTION CARE',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'Sexually-Transmitted Infections Preventions, Control and Treatment',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'Antenatal, Intrapartum and Postnatal Care Services',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'GENDER–BASED VIOLENCE SERVICES',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'ADOLESCENT NUTRITION SERVICES',
-    'image': 'assets/images/undraw_Office_snack_re_l162.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'MONITORING',
-    'image': 'assets/images/undraw_medicine_b1ol.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-  {
-    'title': 'SUMMARY',
-    'image': 'assets/images/counselling.png',
-    'filename': 'introduction_file_0.pdf',
-    'tts_file_name':'chapter_1.txt',
-  },
-];
+  final List<Map<String, dynamic>> data_list = [
+    {
+      'title': 'INTRODUCTION',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'COMPREHENSIVE ABORTION CARE',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title':
+          'Sexually-Transmitted Infections Preventions, Control and Treatment',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'Antenatal, Intrapartum and Postnatal Care Services',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'GENDER–BASED VIOLENCE SERVICES',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'ADOLESCENT NUTRITION SERVICES',
+      'image': 'assets/images/undraw_Office_snack_re_l162.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'MONITORING',
+      'image': 'assets/images/undraw_medicine_b1ol.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+    {
+      'title': 'SUMMARY',
+      'image': 'assets/images/counselling.png',
+      'filename': 'introduction_file_0.pdf',
+      'tts_file_name': 'chapter_1.txt',
+    },
+  ];
 
   late PageController _pageController;
   late Timer _timer;
@@ -166,28 +167,18 @@ final List<Map<String, dynamic>> data_list = [
                             size: 32,
                           ),
                           color: Colors.white,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PDFView(
-                                  title: 'Introduction',
-                                  fileName: 'introduction_file_0.pdf',
-                                ), // Navigate to PDFViewPage
-                              ),
-                            );
-                          },
+                          onPressed: () {},
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-        
+
               const SizedBox(
                 height: 10,
               ),
-        
+
               // Slider poster
               Container(
                 height: 130,
@@ -232,7 +223,7 @@ final List<Map<String, dynamic>> data_list = [
                   ],
                 ),
               ),
-        
+
               const SizedBox(
                 height: 10,
               ),

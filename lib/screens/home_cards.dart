@@ -21,7 +21,8 @@ Widget homeCards(List<Map<String, dynamic>> data_list, BuildContext context) {
                   MaterialPageRoute(
                     builder: (context) => PDFView(
                       title: data['title'].toUpperCase(),
-                      fileName: 'introduction_file_0.pdf',
+                      fileName: data['filename'],
+                      ttsFileName: data['tts_file_name'],
                     ), // Navigate to PDFViewPage
                   ),
                 );

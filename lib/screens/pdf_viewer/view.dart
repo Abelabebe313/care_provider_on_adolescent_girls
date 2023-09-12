@@ -50,7 +50,7 @@ class _PDFView extends State<PDFView> {
           ),
           IconButton(
             icon: const Icon(
-              Icons.zoom_in,
+              Icons.speaker,
               color: Color.fromARGB(255, 39, 39, 39),
             ),
             onPressed: () {

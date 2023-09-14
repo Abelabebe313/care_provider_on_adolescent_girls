@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
     },
     {
       'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
-      'image': 'assets/images/doctor.png',
+      'image': 'assets/images/HIV.png',
       'filename': 'introduction_file_0.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
     },
     {
       'title': 'GENDER–BASED VIOLENCE SERVICES',
-      'image': 'assets/images/counselling.png',
+      'image': 'assets/images/violence.png',
       'filename': 'introduction_file_0.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
@@ -247,7 +247,7 @@ class _HomeState extends State<Home> {
               child: Text(
                 'Catagories',
                 style: TextStyle(
-                  fontFamily: 'Urbanist-Regular',
+                  fontFamily: 'Urbanist-Bold',
                   color: Color(0xFF0E5120),
                   fontSize: 20,
                 ),

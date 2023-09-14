@@ -10,11 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> 
 
     <application
-<<<<<<< HEAD
         android:label="@string/appName"
-=======
-        android:label="CAGH"
->>>>>>> 64d9c787c545fd9ebfbcdc80de42c1e999994372
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

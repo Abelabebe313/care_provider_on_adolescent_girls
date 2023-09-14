@@ -130,10 +130,11 @@ class _AboutUsState extends State<AboutUs> {
               const SizedBox(width: 10),
               IconButton(
                 onPressed: () {
-                  _launchSocialMediaAppIfInstalled(url: 'https://github.com/');
+                  _launchSocialMediaAppIfInstalled(
+                      url: 'https://adolescentgirlseth.org/');
                 },
                 icon: const Icon(
-                  SimpleIcons.github,
+                  SimpleIcons.googlechrome,
                   color: Color(0xFF0E5120),
                 ),
               ),

@@ -15,14 +15,24 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   syncfusion_flutter_pdfviewer: ^22.2.12
-  flutter_tts: ^3.8.2
+  launcher_name: ^1.0.2
+  url_launcher: ^6.1.14
+  simple_icons: ^7.10.0
+  flutter_tts: ^3.8.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/logo.png"
+
+launcher_name:
+  default: "TECHNICAL GUIDELINES CAGH"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -35,6 +45,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icon/
     - assets/fonts/
     - assets/files/
     - assets/tts/

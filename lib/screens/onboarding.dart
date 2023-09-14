@@ -40,6 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             itemBuilder: (context, index) => onboardingContent(
               title: demo_data[index].title,
               image: demo_data[index].image,
+              note: demo_data[index].note,
             ),
           )),
           onBoardingNavigation(
@@ -182,49 +183,60 @@ final List<Onboard> demo_data = [
     title: 'Health promotion and \n'
         'SRH counselling services',
     image: 'assets/images/13.png',
-    note: '',
+    note:
+        'Encourage adolescent clients to know the physical, psychological and social aspects of Sexual and reproductive health(SRH) care.',
   ),
   Onboard(
     title: 'Contraceptive counselling\n'
-        'and services',
-    image: 'assets/images/13.png',
-    note: '',
+        '\t\t\t          and services',
+    image: 'assets/images/14.png',
+    note:
+        'Service providers should provide counselling and services to adolescent girls to improve access to contraceptive services and to reduce occurrence of unplanned pregnancies',
   ),
   Onboard(
     title: 'Comprehensive abortion\n'
-        'care',
-    image: 'assets/images/13.png',
-    note: '',
+        '\t\t\t                care',
+    image: 'assets/images/16.png',
+    note:
+        'Health care providers provide a variety of individualized, culturally sensitive abortion-related care services for women.',
   ),
   Onboard(
     title: 'Prevention & treatment\n'
-        'of STIs/HIV',
-    image: 'assets/images/14.png',
-    note: '',
+        '\t\t\t         of STIs/HIV',
+    image: 'assets/images/13.png',
+    note:
+        'Sexually transmitted infections can be controlled through providing information and services',
   ),
   Onboard(
     title: 'Maternal & newborn\n'
         'health care services',
     image: 'assets/images/15.png',
-    note: '',
+    note:
+        'Healthcare providers who are motivated, competent, and compassionate should Create a safe, warm environment for the mother and newborn with high-quality care',
   ),
   Onboard(
     title: 'Adolescent Nutrition',
     image: 'assets/images/16.png',
-    note: '',
+    note:
+        "Protein, iron, and other micro nutrients are required to support adolescent growth and meet the body's increased demand for iron during menstruation.",
   ),
   Onboard(
     title: 'Gender-based violence',
     image: 'assets/images/17.png',
-    note: '',
+    note:
+        'Many women and girls are victims of violence. Midwives and other service providers should identify and assist GBV-affected women and girls',
   ),
 ];
 
 class onboardingContent extends StatelessWidget {
   const onboardingContent(
-      {super.key, required this.title, required this.image});
+      {super.key,
+      required this.title,
+      required this.image,
+      required this.note});
   final String title;
   final String image;
+  final String note;
 
   @override
   Widget build(BuildContext context) {
@@ -240,20 +252,21 @@ class onboardingContent extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'Poppins-SemiBold',
               fontSize: 22,
+              color: const Color(0xFF0E5120),
             ),
           ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.5,
+          width: MediaQuery.of(context).size.width * 0.7,
+          height: MediaQuery.of(context).size.height * 0.4,
           child: Center(
             child: Image.asset(image),
           ),
         ),
         Text(
-          'Read the article you want \n'
-          'instantly',
-          style: TextStyle(fontFamily: 'Urbanist-Regular', fontSize: 17),
+          note,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontFamily: 'Urbanist-Light', fontSize: 17),
         ),
       ],
     );

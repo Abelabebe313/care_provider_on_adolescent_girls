@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:care_provider_on_adolescent_girls_mobile/screens/about/search/search_screen.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/widgets/enddrawer.dart';
@@ -101,7 +102,7 @@ class _HomeState extends State<Home> {
   }
 
   void _startAutoScroll() {
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (_currentPage < 4) {
         _currentPage++;
       } else {
@@ -109,7 +110,7 @@ class _HomeState extends State<Home> {
       }
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
       );
     });
@@ -174,7 +175,7 @@ class _HomeState extends State<Home> {
                             MaterialPageRoute(
                               builder: (context) => const PDFView(
                                 title: 'Introduction',
-                                fileName: 'introduction_file_0.pdf',
+                                fileName: 'introduction_file_0.pdf', ttsFileName: '',
                               ), // Navigate to PDFViewPage
                             ),
                           );

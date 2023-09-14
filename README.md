@@ -7,10 +7,10 @@ This mobile app provides access to technical and procedural guidelines for healt
 ## Screenshot Demo
 
 <div style="display: flex; flex-direction: row;">
-  <img src="screenshots/image1.jpg" alt="Mobile App Screenshot" width="180" />
-  <img src="screenshots/image2.jpg" alt="Mobile App Screenshot" width="180" />
-  <img src="screenshots/image3.jpg" alt="Mobile App Screenshot" width="180" />
-  <img src="screenshots/image4.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_1.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_2.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_3.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_4.jpg" alt="Mobile App Screenshot" width="180" />
 </div>
 
 ## Features Added:

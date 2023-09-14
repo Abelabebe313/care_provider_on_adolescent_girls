@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:care_provider_on_adolescent_girls_mobile/screens/about/search/search_screen.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/screens/search/search_screen.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +17,12 @@ class _HomeState extends State<Home> {
       'title': 'INTRODUCTION',
       'image': 'assets/images/counselling.png',
       'filename': 'introduction_file_0.pdf',
-      'tts_file_name': 'chapter_1.txt',
+      'tts_file_name': 'chapter_0.txt',
     },
     {
       'title': 'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
       'image': 'assets/images/counselling.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_1.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
@@ -142,8 +142,7 @@ class _HomeState extends State<Home> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => SearchResult(
-                            keyword: '',
-                            data_list:
+                            dataList:
                                 data_list), // Replace SearchResult() with your desired page
                       ),
                     );

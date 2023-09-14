@@ -179,7 +179,7 @@ class _PDFViewState extends State<PDFView> {
 
     try {
       final String ttsContent = await rootBundle.loadString(ttsFilePath);
-      late String content = "Welcome. ";
+      late String content = "";
 
       LineSplitter.split(ttsContent).forEach((line) {
         if (line.isNotEmpty) {

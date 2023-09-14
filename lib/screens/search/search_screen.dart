@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class SearchResult extends StatefulWidget {
-  final String keyword;
-  final List<Map<String, dynamic>> data_list;
+  final List<Map<String, dynamic>> dataList;
 
-  const SearchResult(
-      {super.key, required this.keyword, required this.data_list});
+  const SearchResult({Key? key, required this.dataList}) : super(key: key);
 
   @override
   SearchResultState createState() => SearchResultState();
@@ -20,12 +18,12 @@ class SearchResultState extends State<SearchResult> {
 
   final FocusNode _focusNode = FocusNode();
   List<Map<String, dynamic>> filteredData = [];
+
   @override
   void initState() {
     super.initState();
-    filteredData = widget.data_list;
-    // Schedule the request for focus after the widget is built.
-    SchedulerBinding.instance?.addPostFrameCallback((_) {
+    filteredData = widget.dataList;
+    SchedulerBinding.instance.addPostFrameCallback((_) {
       FocusScope.of(context).requestFocus(_focusNode);
     });
   }
@@ -43,9 +41,8 @@ class SearchResultState extends State<SearchResult> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: TextField(
-          focusNode: _focusNode, // Assign the focus node here
+          focusNode: _focusNode,
           maxLines: 1,
-
           controller: inputController,
           style: TextStyle(color: Colors.grey[800], fontSize: 18),
           keyboardType: TextInputType.text,
@@ -53,7 +50,7 @@ class SearchResultState extends State<SearchResult> {
             setState(() {
               finishLoading = false;
             });
-            delayShowingContent();
+            filterData(term);
           },
           onChanged: (term) {
             setState(() {
@@ -135,7 +132,7 @@ class SearchResultState extends State<SearchResult> {
                   title: item['title'].toUpperCase(),
                   fileName: item['filename'],
                   ttsFileName: item['tts_file_name'],
-                ), // Navigate to PDFViewPage
+                ),
               ),
             );
           },
@@ -144,11 +141,22 @@ class SearchResultState extends State<SearchResult> {
     );
   }
 
-  void delayShowingContent() {
-    Future.delayed(const Duration(seconds: 3), () {
+  void filterData(String searchTerm) {
+    if (searchTerm.isEmpty) {
+      // If the search term is empty, show all the data.
       setState(() {
+        filteredData = widget.dataList;
         finishLoading = true;
       });
-    });
+    } else {
+      // Filter the data based on the search term.
+      setState(() {
+        filteredData = widget.dataList.where((item) {
+          final title = item['title'].toUpperCase();
+          return title.contains(searchTerm.toUpperCase());
+        }).toList();
+        finishLoading = true;
+      });
+    }
   }
 }

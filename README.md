@@ -1,16 +1,31 @@
-# care_provider_on_adolescent_girls_mobile
+# Project Title
+MOBILE APP FOR TECHNICAL AND PROCEDURAL GUIDELINES FOR HEALTH CARE PROVIDERS ON ADOLESCENT GIRLS
 
-A new Flutter project.
+## Description
+This mobile app provides access to technical and procedural guidelines for healthcare providers working with adolescent girls. It offers a user-friendly interface to navigate and search for guidelines, as well as the ability to read guidelines in voice format.
 
-## Getting Started
+## Screenshot Demo
 
-This project is a starting point for a Flutter application.
+<div style="display: flex; flex-direction: row;">
+  <img src="screenshots/image_1.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_2.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_3.jpg" alt="Mobile App Screenshot" width="180" />
+  <img src="screenshots/image_4.jpg" alt="Mobile App Screenshot" width="180" />
+</div>
 
-A few resources to get you started if this is your first Flutter project:
+## Features Added:
+- Onboarding Pages
+- Home Page
+- Search Chapters
+- PDF Reader with Voice Support
+- Search and Bookmarking within PDFs
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contributors
+This project was developed as a voluntary initiative for the Center for Adolescent Girls Health.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Developers
+- Abel Abebe
+- Gemechis Elias
+
+### Project Manager
+- Tarik

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:care_provider_on_adolescent_girls_mobile/screens/search/search_screen.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/widgets/enddrawer.dart';

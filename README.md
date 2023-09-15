@@ -17,7 +17,7 @@ This mobile app provides access to technical and procedural guidelines for healt
 - Onboarding Pages
 - Home Page
 - Search Chapters
-- PDF Reader with Voice Support
+- PDF Reader with Audio Support
 - Search and Bookmarking within PDFs
 
 ## Contributors

@@ -19,6 +19,7 @@ dependencies:
   url_launcher: ^6.1.14
   simple_icons: ^7.10.0
   flutter_tts: ^3.8.3
+  shared_preferences: ^2.2.1
 
 dev_dependencies:
   flutter_test:

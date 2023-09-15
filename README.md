@@ -28,4 +28,4 @@ This project was developed as a voluntary initiative for the Center for Adolesce
 - Gemechis Elias
 
 ### Project Manager
-- Tarik
+- Tarikwa Tesfa

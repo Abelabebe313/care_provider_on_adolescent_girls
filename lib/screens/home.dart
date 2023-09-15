@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/widgets/enddrawer.dart';
+import 'search/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -34,38 +35,38 @@ class _HomeState extends State<Home> {
     {
       'title': 'COMPREHENSIVE ABORTION CARE',
       'image': 'assets/images/mother_care.png',
-      'filename': 'introduction_file_0.pdf',
-      'tts_file_name': 'chapter_1.txt',
+      'filename': 'chapter_file_3.pdf',
+      'tts_file_name': 'chapter_3.txt',
     },
     {
       'title':
           'Sexually-Transmitted Infections Preventions, Control and Treatment',
       'image': 'assets/images/counselling.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_3.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
       'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
       'image': 'assets/images/HIV.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_3.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
       'title': 'Antenatal, Intrapartum and Postnatal Care Services',
       'image': 'assets/images/doctor_monitoring.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_3.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
-      'title': 'GENDER–BASED VIOLENCE SERVICES',
+      'title': 'GENDER BASED VIOLENCE SERVICES',
       'image': 'assets/images/violence.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_3.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
       'title': 'ADOLESCENT NUTRITION SERVICES',
       'image': 'assets/images/nutrition.png',
-      'filename': 'introduction_file_0.pdf',
+      'filename': 'chapter_file_3.pdf',
       'tts_file_name': 'chapter_1.txt',
     },
     {
@@ -137,54 +138,64 @@ class _HomeState extends State<Home> {
             ),
             // Search Bar
             Center(
-              child: Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width * 0.95,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search an article...",
-                    hintStyle: TextStyle(
-                      fontFamily: 'Poppins-ExtraLight',
-                      color: Colors.grey.shade400,
-                      fontSize: 15,
-                    ),
-                    contentPadding: const EdgeInsets.only(
-                        left: 10, top: 12, bottom: 12), // Add padding here
-                    border: InputBorder.none,
-                    suffixIcon: Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF0E5120),
-                        borderRadius: BorderRadius.circular(12),
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SearchResult(
+                            dataList:
+                                data_list), // Replace SearchResult() with your desired page
                       ),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.search,
-                          size: 32,
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search an article...",
+                        hintStyle: TextStyle(
+                          fontFamily: 'Poppins-ExtraLight',
+                          color: Colors.grey.shade400,
+                          fontSize: 15,
                         ),
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const PDFView(
-                                title: 'Introduction',
-                                fileName: 'introduction_file_0.pdf',
-                                ttsFileName: '',
-                              ), // Navigate to PDFViewPage
+                        contentPadding: const EdgeInsets.only(
+                            left: 10, top: 12, bottom: 12), // Add padding here
+                        border: InputBorder.none,
+                        suffixIcon: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF0E5120),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.search,
+                              size: 32,
                             ),
-                          );
-                        },
+                            color: Colors.white,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PDFView(
+                                    title: 'Introduction',
+                                    fileName: 'introduction_file_0.pdf',
+                                    ttsFileName: '',
+                                  ), // Navigate to PDFViewPage
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
+                  )),
             ),
 
             const SizedBox(
@@ -245,7 +256,7 @@ class _HomeState extends State<Home> {
                 vertical: 5,
               ),
               child: Text(
-                'Catagories',
+                'Contents',
                 style: TextStyle(
                   fontFamily: 'Urbanist-Bold',
                   color: Color(0xFF0E5120),

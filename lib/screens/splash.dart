@@ -1,5 +1,7 @@
+import 'package:care_provider_on_adolescent_girls_mobile/screens/home.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/screens/onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -12,13 +14,32 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
+    checkFirstVisit();
+  }
+
+  Future<void> checkFirstVisit() async {
+    final prefs = await SharedPreferences.getInstance();
+    final visitedBefore = prefs.getBool('visited_before') ?? false;
+
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
-        );
+        if (visitedBefore) {
+          // If visited before, navigate to Home()
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+          );
+        } else {
+          // If first visit, navigate to OnBoardingScreen()
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
+          );
+
+          // Set visited_before flag to true for future visits
+          prefs.setBool('visited_before', true);
+        }
       },
     );
   }

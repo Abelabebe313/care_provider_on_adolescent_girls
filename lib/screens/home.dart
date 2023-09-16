@@ -136,28 +136,27 @@ class _HomeState extends State<Home> {
             const SizedBox(
               height: 10,
             ),
-            // Search Bar
-            Center(
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => SearchResult(
-                            dataList:
-                                data_list), // Replace SearchResult() with your desired page
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.95,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SearchResult(dataList: data_list),
+                  ),
+                );
+              },
+              child: Center(
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: IgnorePointer(
+                    ignoring: true, // Disable interaction with the text field
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: "Search an article...",
+                        hintText: "Search content...",
                         hintStyle: TextStyle(
                           fontFamily: 'Poppins-ExtraLight',
                           color: Colors.grey.shade400,
@@ -179,25 +178,15 @@ class _HomeState extends State<Home> {
                               size: 32,
                             ),
                             color: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const PDFView(
-                                    title: 'Introduction',
-                                    fileName: 'introduction_file_0.pdf',
-                                    ttsFileName: '',
-                                  ), // Navigate to PDFViewPage
-                                ),
-                              );
-                            },
+                            onPressed: () {},
                           ),
                         ),
                       ),
                     ),
-                  )),
+                  ),
+                ),
+              ),
             ),
-
             const SizedBox(
               height: 10,
             ),

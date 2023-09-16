@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Health Care Provider On Adolescent Girls',
+      title: 'CAGH APP',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.white, secondary: const Color(0xffEE6F57)),

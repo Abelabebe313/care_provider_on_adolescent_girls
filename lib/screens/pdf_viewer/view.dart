@@ -265,6 +265,7 @@ class _PDFViewState extends State<PDFView> {
     );
   }
 
+  final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -277,6 +278,15 @@ class _PDFViewState extends State<PDFView> {
           style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.bookmark,
+              color: Color.fromARGB(255, 24, 23, 23),
+            ),
+            onPressed: () {
+              _pdfViewerKey.currentState?.openBookmarkView();
+            },
+          ),
           IconButton(
             icon: const Icon(
               Icons.search,
@@ -363,12 +373,12 @@ class _PDFViewState extends State<PDFView> {
       body: Container(
         color: Colors.white,
         child: SfPdfViewer.asset('assets/files/${widget.fileName}',
+            key: _pdfViewerKey,
             maxZoomLevel: 3,
             pageSpacing: 3,
             controller: _pdfViewerController,
             currentSearchTextHighlightColor: Colors.yellow.withOpacity(0.6),
             otherSearchTextHighlightColor: Colors.yellow.withOpacity(0.3),
-            //   pageLayoutMode: PdfPageLayoutMode.single,
             canShowScrollHead: true,
             canShowScrollStatus: true,
             canShowPaginationDialog: true),

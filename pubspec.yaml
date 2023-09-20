@@ -20,6 +20,7 @@ dependencies:
   simple_icons: ^7.10.0
   flutter_tts: ^3.8.3
   shared_preferences: ^2.2.1
+  lottie: ^2.6.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/lotties/
     - assets/icon/
     - assets/fonts/
     - assets/files/

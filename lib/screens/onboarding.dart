@@ -1,5 +1,6 @@
 import 'package:care_provider_on_adolescent_girls_mobile/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -182,47 +183,47 @@ final List<Onboard> demo_data = [
   Onboard(
     title: 'Health promotion and \n'
         'SRH counselling services',
-    image: 'assets/images/13.png',
+    image: 'assets/lotties/3.json',
     note:
         'Encourage adolescent clients to know the physical, psychological and social aspects of Sexual and reproductive health(SRH) care.',
   ),
   Onboard(
     title: 'Contraceptive counselling\n'
         '\t\t\t          and services',
-    image: 'assets/images/14.png',
+    image: 'assets/lotties/7.json',
     note:
         'Service providers should provide counselling and services to adolescent girls to improve access to contraceptive services and to reduce occurrence of unplanned pregnancies',
   ),
   Onboard(
     title: 'Comprehensive abortion\n'
         '\t\t\t                care',
-    image: 'assets/images/16.png',
+    image: 'assets/lotties/11.json',
     note:
         'Health care providers provide a variety of individualized, culturally sensitive abortion-related care services for women.',
   ),
   Onboard(
     title: 'Prevention & treatment\n'
         '\t\t\t         of STIs/HIV',
-    image: 'assets/images/13.png',
+    image: 'assets/lotties/8.json',
     note:
         'Sexually transmitted infections can be controlled through providing information and services',
   ),
   Onboard(
     title: 'Maternal & newborn\n'
         'health care services',
-    image: 'assets/images/15.png',
+    image: 'assets/lotties/9.json',
     note:
         'Healthcare providers who are motivated, competent, and compassionate should Create a safe, warm environment for the mother and newborn with high-quality care',
   ),
   Onboard(
     title: 'Adolescent Nutrition',
-    image: 'assets/images/16.png',
+    image: 'assets/lotties/4.json',
     note:
         "Protein, iron, and other micro nutrients are required to support adolescent growth and meet the body's increased demand for iron during menstruation.",
   ),
   Onboard(
     title: 'Gender-based violence',
-    image: 'assets/images/17.png',
+    image: 'assets/lotties/6.json',
     note:
         'Many women and girls are victims of violence. Midwives and other service providers should identify and assist GBV-affected women and girls',
   ),
@@ -260,7 +261,7 @@ class onboardingContent extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.7,
           height: MediaQuery.of(context).size.height * 0.4,
           child: Center(
-            child: Image.asset(image),
+            child: Lottie.asset(image),
           ),
         ),
         Text(

@@ -1,5 +1,25 @@
-import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
+
+import '../../data/model/guideline.dart';
+import 'reading_page/reading_screen.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+
+// Function to load and parse JSON data from an asset file
+Future<Map<String, dynamic>> loadJsonFromAsset(String assetPath) async {
+  final jsonString = await rootBundle.loadString(assetPath);
+  final jsonData = json.decode(jsonString);
+  return jsonData;
+}
+
+// Create a Guideline instance from JSON data
+Future<Guideline> createGuidelineFromJson(String filename) async {
+  final jsonData = await loadJsonFromAsset('assets/files/$filename');
+
+  Guideline guideline = Guideline.fromJson(jsonData);
+
+  return guideline;
+}
 
 Widget homeCards(List<Map<String, dynamic>> data_list, BuildContext context) {
   return Padding(
@@ -15,15 +35,27 @@ Widget homeCards(List<Map<String, dynamic>> data_list, BuildContext context) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: InkWell(
-              onTap: () {
+              onTap: () async {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => PDFView(
+                //       title: data['title'].toUpperCase(),
+                //       fileName: data['filename'],
+                //       ttsFileName: data['tts_file_name'],
+                //     ), // Navigate to PDFViewPage
+                //   ),
+                // );
+
+                Guideline guideline =
+                    await createGuidelineFromJson(data['filename']);
+
+                // ignore: use_build_context_synchronously
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PDFView(
-                      title: data['title'].toUpperCase(),
-                      fileName: data['filename'],
-                      ttsFileName: data['tts_file_name'],
-                    ), // Navigate to PDFViewPage
+                    builder: (context) => ReadingScreen(guideline: guideline,
+                   voiceDataPath:data['tts_file_name'] ),
                   ),
                 );
               },
@@ -42,6 +74,7 @@ Widget homeCards(List<Map<String, dynamic>> data_list, BuildContext context) {
                   ],
                 ),
                 child: Card(
+                  surfaceTintColor: Colors.white,
                   margin: const EdgeInsets.all(0),
                   elevation: 0,
                   shape: RoundedRectangleBorder(

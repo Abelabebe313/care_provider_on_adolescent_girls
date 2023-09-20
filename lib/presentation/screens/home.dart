@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:care_provider_on_adolescent_girls_mobile/screens/home_cards.dart';
-import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
-import 'package:care_provider_on_adolescent_girls_mobile/widgets/enddrawer.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/home_cards.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/pdf_viewer/view.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/widgets/enddrawer.dart';
 import 'search/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,71 +15,46 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final List<Map<String, dynamic>> data_list = [
     {
-      'title': 'INTRODUCTION',
+      'title': 'Health Promotion and SRH counselling services',
       'image': 'assets/images/counselling.png',
-      'filename': 'introduction_file_0.pdf',
-      'tts_file_name': 'chapter_0.txt',
-    },
-    {
-      'title': 'ADOLESCENT SEXUAL AND REPRODUCTIVE HEALTH SERVICE',
-      'image': 'assets/images/counselling.png',
-      'filename': 'chapter_file_1.pdf',
-      'tts_file_name': 'chapter_1.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
       'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
       'image': 'assets/images/counselling.png',
-      'filename': 'chapter_file_2.pdf',
-      'tts_file_name': 'chapter_2.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
       'title': 'COMPREHENSIVE ABORTION CARE',
       'image': 'assets/images/mother_care.png',
-      'filename': 'chapter_file_3.pdf',
-      'tts_file_name': 'chapter_3.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
-      'title':
-          'Sexually-Transmitted Infections Preventions, Control and Treatment',
-      'image': 'assets/images/counselling.png',
-      'filename': 'chapter_file_4.pdf',
-      'tts_file_name': 'chapter_4.txt',
-    },
-    {
-      'title': 'HIV PREVENTION, CONTROL AND TREATMENT',
+      'title': 'Prevention and Treatment of STIs/HIV',
       'image': 'assets/images/HIV.png',
-      'filename': 'chapter_file_5.pdf',
-      'tts_file_name': 'chapter_5.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
-      'title': 'Antenatal, Intrapartum and Postnatal Care Services',
-      'image': 'assets/images/doctor_monitoring.png',
-      'filename': 'chapter_file_6.pdf',
-      'tts_file_name': 'chapter_6.txt',
-    },
-    {
-      'title': 'GENDER BASED VIOLENCE SERVICES',
+      'title': 'Maternal and newborn health care services',
       'image': 'assets/images/violence.png',
-      'filename': 'chapter_file_7.pdf',
-      'tts_file_name': 'chapter_7.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
       'title': 'ADOLESCENT NUTRITION SERVICES',
       'image': 'assets/images/nutrition.png',
-      'filename': 'chapter_file_8.pdf',
-      'tts_file_name': 'chapter_8.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
     {
-      'title': 'MONITORING',
+      'title': 'Gender Based Violence',
       'image': 'assets/images/doctor_monitoring.png',
-      'filename': 'chapter_file_9.pdf',
-      'tts_file_name': 'chapter_9.txt',
-    },
-    {
-      'title': 'SUMMARY',
-      'image': 'assets/images/counselling.png',
-      'filename': 'summery.pdf',
-      'tts_file_name': 'summery.txt',
+      'filename': 'chapter_1.json',
+      'tts_file_name': 'chapter_1.mp3',
     },
   ];
 

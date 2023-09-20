@@ -1,4 +1,4 @@
-import 'package:care_provider_on_adolescent_girls_mobile/screens/pdf_viewer/view.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 

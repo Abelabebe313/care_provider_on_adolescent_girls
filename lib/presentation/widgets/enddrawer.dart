@@ -1,4 +1,4 @@
-import 'package:care_provider_on_adolescent_girls_mobile/screens/about/about_us.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/about/about_us.dart';
 import 'package:flutter/material.dart';
 
 class EndDrawers extends StatefulWidget {

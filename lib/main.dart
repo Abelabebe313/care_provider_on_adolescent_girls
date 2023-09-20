@@ -1,4 +1,4 @@
-import 'package:care_provider_on_adolescent_girls_mobile/screens/splash.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

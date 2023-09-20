@@ -1,4 +1,4 @@
-import 'package:care_provider_on_adolescent_girls_mobile/screens/home.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

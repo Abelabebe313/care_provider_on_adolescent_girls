@@ -119,14 +119,10 @@ class _ReadingScreenState extends State<ReadingScreen> {
               ),
               IconButton(
                 icon: Icon(
-                  isPlaying ? Icons.pause : Icons.play_arrow,
+                  isPlaying ? Icons.pause : Icons.volume_up,
                   color: MyColors.grey_60,
                 ),
                 onPressed: _playPauseAudio, // Toggle play/pause
-              ),
-              IconButton(
-                icon: const Icon(Icons.volume_up, color: MyColors.grey_60),
-                onPressed: () {},
               ),
             ],
           ),

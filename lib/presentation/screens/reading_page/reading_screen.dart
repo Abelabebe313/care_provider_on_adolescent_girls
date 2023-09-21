@@ -50,6 +50,49 @@ class _ReadingScreenState extends State<ReadingScreen> {
     });
   }
 
+  List<InlineSpan> parseText(String input) {
+    List<InlineSpan> textSpans = [];
+
+    RegExp exp = RegExp(r'<b>(.*?)<\/b>');
+
+    List<RegExpMatch> matches = exp.allMatches(input).toList();
+
+    int previousMatchEnd = 0;
+
+    for (RegExpMatch match in matches) {
+      // Add the non-bold text
+      textSpans.add(
+        TextSpan(
+          text: input.substring(previousMatchEnd, match.start),
+          style: MyText.subhead(context)!.copyWith(color: MyColors.grey_80),
+        ),
+      );
+
+      // Add the bold text
+      textSpans.add(
+        TextSpan(
+          text: match.group(1), // Extract the text within <b> tags
+          style: MyText.subhead(context)!
+              .copyWith(color: MyColors.grey_80, fontWeight: FontWeight.bold),
+        ),
+      );
+
+      previousMatchEnd = match.end;
+    }
+
+    // Add any remaining non-bold text
+    if (previousMatchEnd < input.length) {
+      textSpans.add(
+        TextSpan(
+          text: input.substring(previousMatchEnd),
+          style: MyText.subhead(context)!.copyWith(color: MyColors.grey_80),
+        ),
+      );
+    }
+
+    return textSpans;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> guidelineItems = [];
@@ -88,11 +131,17 @@ class _ReadingScreenState extends State<ReadingScreen> {
           ),
         );
       } else {
-        guidelineItems.add(const Divider(height: 30));
-        guidelineItems.add(Text(
-          data.replaceAll('\\n', '\n'), // Replace \\n with \n
-          textAlign: TextAlign.justify,
-          style: MyText.subhead(context)!.copyWith(color: MyColors.grey_80),
+        guidelineItems.add(const Divider(height: 20));
+        guidelineItems.add(Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: RichText(
+            textAlign: TextAlign.justify,
+            text: TextSpan(
+              children: parseText(
+                data.replaceAll('\\n', '\n'),
+              ),
+            ),
+          ),
         ));
       }
     }

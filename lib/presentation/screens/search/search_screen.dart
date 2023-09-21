@@ -1,6 +1,10 @@
 import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/pdf_viewer/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import '../../../data/model/guideline.dart';
+import '../reading_page/reading_screen.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
 
 class SearchResult extends StatefulWidget {
   final List<Map<String, dynamic>> dataList;
@@ -9,6 +13,22 @@ class SearchResult extends StatefulWidget {
 
   @override
   SearchResultState createState() => SearchResultState();
+}
+
+// Function to load and parse JSON data from an asset file
+Future<Map<String, dynamic>> loadJsonFromAsset(String assetPath) async {
+  final jsonString = await rootBundle.loadString(assetPath);
+  final jsonData = json.decode(jsonString);
+  return jsonData;
+}
+
+// Create a Guideline instance from JSON data
+Future<Guideline> createGuidelineFromJson(String filename) async {
+  final jsonData = await loadJsonFromAsset('assets/files/$filename');
+
+  Guideline guideline = Guideline.fromJson(jsonData);
+
+  return guideline;
 }
 
 class SearchResultState extends State<SearchResult> {
@@ -124,15 +144,16 @@ class SearchResultState extends State<SearchResult> {
           title: Text(
             item['title'].toUpperCase(),
           ),
-          onTap: () {
+          onTap: () async {
+            Guideline guideline =
+                await createGuidelineFromJson(item['filename']);
+
+            // ignore: use_build_context_synchronously
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PDFView(
-                  title: item['title'].toUpperCase(),
-                  fileName: item['filename'],
-                  ttsFileName: item['tts_file_name'],
-                ),
+                builder: (context) => ReadingScreen(
+                    guideline: guideline, voiceDataPath: item['tts_file_name']),
               ),
             );
           },

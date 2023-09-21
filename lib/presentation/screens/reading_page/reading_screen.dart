@@ -41,8 +41,8 @@ class _ReadingScreenState extends State<ReadingScreen> {
     if (isPlaying) {
       await audioPlayer.pause();
     } else {
-      // final uri = Uri.file();
-      await audioPlayer.play(UrlSource('assets/tts/${widget.voiceDataPath}'));
+      //final uri = Uri.file();
+      await audioPlayer.play(AssetSource('tts/${widget.voiceDataPath}'));
     }
 
     setState(() {

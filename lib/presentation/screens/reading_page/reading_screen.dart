@@ -1,7 +1,6 @@
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_colors.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_text.dart';
 import 'package:flutter/material.dart';
-
 import 'package:audioplayers/audioplayers.dart';
 import '../../../core/img.dart';
 import '../../../data/model/guideline.dart';
@@ -25,7 +24,7 @@ class _ReadingScreenState extends State<ReadingScreen> {
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
-    audioPlayer.onPlayerCompletion.listen((event) {
+    audioPlayer.onPlayerComplete.listen((event) {
       setState(() {
         isPlaying = false;
       });
@@ -42,7 +41,8 @@ class _ReadingScreenState extends State<ReadingScreen> {
     if (isPlaying) {
       await audioPlayer.pause();
     } else {
-      await audioPlayer.play(widget.voiceDataPath);
+      // final uri = Uri.file();
+      await audioPlayer.play(UrlSource('assets/tts/${widget.voiceDataPath}'));
     }
 
     setState(() {

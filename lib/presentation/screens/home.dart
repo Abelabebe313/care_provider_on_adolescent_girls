@@ -17,14 +17,12 @@ class _HomeState extends State<Home> {
     {
       'title': 'Health Promotion and SRH counselling services',
       'image': 'assets/images/counselling.png',
-      'image': 'assets/images/doctor_monitoring.png',
       'filename': 'chapter_1.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
       'image': 'assets/images/counselling.png',
-      'filename': 'chapter_2.json',
       'filename': 'chapter_1.json',
       'tts_file_name': 'chapter_1.wav',
     },

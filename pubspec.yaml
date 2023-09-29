@@ -53,6 +53,7 @@ flutter:
     - assets/fonts/
     - assets/files/
     - assets/tts/
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

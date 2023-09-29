@@ -1,7 +1,7 @@
 {
-    "titles": [ "_CONTRACEPTIVE COUNSELLING AND SERVICES", 
-                "_",
-                "_",
+    "titles": [ "_GENDER-BASED VIOLENCE SERVICES", 
+                "_Response and support for prevention of violence against adolescents",
+                "Gender-based violence (GBV) prevention, support and care",
                 "_",
                 "_",
                 "_",
@@ -15,9 +15,9 @@
                 "_",
                 "_"
           ],
-    "content":[ "Contraceptive counselling is most effective when it is tailored to the specific needs of the client. Clients must be allowed time to reflect and ask questions about contraception methods (WHO 2018a: 370). Qualified providers should provide counselling and services to adolescent girls (WHO 2011a: 4) by improving adolescent girls access and offering post-abortion contraception in order to reduce the likelihood of adolescent girls having second pregnancies. Service providers should provide counselling and services to adolescent girls to improve access to contraceptive services and to reduce the likelihood of the consequent occurrence of unplanned pregnancies. The services also need to be adolescent friendly. Health providers must promote adolescent-friendly contraceptive counselling and services (FMoH 2017a: 32, 34). One of the core competencies of service providers is to provide contraceptive counselling and services (ICM 2019:13-21).",
-                "",
-                "",
+    "content":[ "Gender-based violence (GBV) is defined as violence involving men and women in whom the woman is typically the victim (Bott, Sarah, et al., 2004). Sexual violence includes rape, sexual slavery and/or trafficking, forced pregnancy, sexual harassment, sexual exploitation and abuse, and forced abortion. Violence against women is global, systemic, and rooted in power imbalances and structural inequality (WHO, 2018a: 360). Gender-based violence is a problem that must be addressed. Many women and girls are victims of violence. Midwives and other service providers should identify and assist GBV-affected women and girls (WHO 2018a: 360).",
+                "Health care interventions to combat GBV include response and support services for preventing adolescent violence, early detection of GBV through clinical inquiry, first-line support and response, and treatment and care for intimate partner violence and  sexual assault (WHO 2017d: 7). In cases of sexual violence, HIV post-exposure prophylaxis as well as emergency contraception should be offered (WHO 2017d: 5). The consequences of GBV depend on the type and severity of the incidence. The WHO (2017d: 4) recommends the following: health care providers offer non-judgmental care and validate a response, make available comprehensive and integrated care, publicise the availability of services, reduce stigma related to sexual abuse, advocate with policy-makers, prioritise and strengthen referrals.In addition, healthcare providers should provide victims with psychological care and support. Because one of the traumatic experiences that the victim or survivor has, as a result of sexual abuse is emotional disturbance and negative psychological feelings. As a result, understanding the survivor's emotional environment is 'first aid' and has the ability to heal the emotional wounds of SV/GBV survivors.",
+                "Violence can lead to a range of health problems, including unwanted pregnancy, HIV and other STIs. Health managers and policy-makers should create an enabling service-delivery environment and support health care providers in carrying out their tasks and responsibilities related to caring for adolescents who have been sexually abused (WHO 2017d: 4). WHO’s (2017d: 2) recommendation and good practice statement in adolescent-centered care/first line support, Health care providers should provide first-line support that is gender sensitive and adolescent centred, in response to a disclosure of sexual abuse. This includes:\n• Listening respectfully and empathetically to the information that is provided; offering a non-judgmental and validating response.\n• Providing emotional and practical support by facilitating access to psychosocial services.\n• Providing age-appropriate information about what will be done to provide with need care.\n• Prioritizing immediate medical needs and first-line support.\n• Minimising the need to go to multiple points of care within the health facility.",
                 "",
                 "",
                 "",
@@ -31,7 +31,7 @@
                 "",
                 ""
           ],
-    "images": [ "assets/images/counselling.png",
+    "images": [ "assets/images/17.png",
                 "",
                 "",
                 "",

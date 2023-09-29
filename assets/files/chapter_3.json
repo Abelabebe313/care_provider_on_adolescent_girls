@@ -1,50 +1,58 @@
 {
-    "titles": [ "_CONTRACEPTIVE COUNSELLING AND SERVICES", 
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_",
-                "_"
+    "titles": [ "_COMPREHENSIVE ABORTION CARE", 
+                "_Classification of abortion",
+                "_Legal provisions for safe abortion care",
+
+                "_Article 551 of the penal code",
+                "_Timing and place for terminating a pregnancy",
+                "_Clinical interview and examination",
+
+                "_Abortion care services",
+                "_Counselling",
+                "_Procedures to be performed during abortion care",
+
+                "_Informed decision making",
+                "_Pain control in a safe abortion setting",
+                "_Abortion services by level of care",
+
+                "_Medical abortion",
+                "_Dosages and routes of administration"
           ],
-    "content":[ "Contraceptive counselling is most effective when it is tailored to the specific needs of the client. Clients must be allowed time to reflect and ask questions about contraception methods (WHO 2018a: 370). Qualified providers should provide counselling and services to adolescent girls (WHO 2011a: 4) by improving adolescent girls access and offering post-abortion contraception in order to reduce the likelihood of adolescent girls having second pregnancies. Service providers should provide counselling and services to adolescent girls to improve access to contraceptive services and to reduce the likelihood of the consequent occurrence of unplanned pregnancies. The services also need to be adolescent friendly. Health providers must promote adolescent-friendly contraceptive counselling and services (FMoH 2017a: 32, 34). One of the core competencies of service providers is to provide contraceptive counselling and services (ICM 2019:13-21).",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+    "content":[ "Health care providers provide a variety of individualized, culturally sensitive abortion-related care services for women who require or are experiencing pregnancy termination or loss (2019:16). During and after abortion, care and support (both medical and psychological) are required. Health care providers should confirm pregnancy and determine gestational age. Counsel the woman on the decision to continue or terminate the pregnancy. If termination is decided, the client should be counselled on options of safe termination (Manual vacuum aspiration and Medical abortion)  (ICM 2019:16).",
+                "There are different ways of classifying abortion\n<b> Based on gestational age </b>\n• First trimester abortion (is less than 12 weeks of gestation).\n\n• Second trimester abortion (is greater than 12 weeks up to 28 weeks of gestation).\n\n<b> Based on care related to the termination of pregnancy </b>\n\n\n• Safe abortion care is termination of pregnancy that is provided to clients recognized health facility, trained providers and standard medical equipment and supplies in accordance with the law.\n• Post-abortion care is a comprehensive service given to clients who present to a health care facility after an abortion has occurred spontaneously or as a result of an attempted termination.",
+                "   -",
+               
+                "Technical and procedural guidelines of article 551 of Ethiopia's penal code allows for pregnancy termination under the following conditions (FMoH 2014b: 11-14):\n(1) <b>A recognized medical institution within the period permitted by the profession is not punishable where:</b>\n• A pregnancy is a result of rape or incest.\n• <b>The continuation of the pregnancy endangers the life/health of the mother or the child.</b>\n• <b>The fetus has an incurable and serious deformity.</b>\n• <b>The pregnant woman has a physical or mental deficiency or her minority is physically as well as mentally unfit to bring up the child.</b>\n(2) <b>In case of grave and imminent danger, which can be averted by an immediate intervention, an act of terminating pregnancy in accordance with the provision of Article 75 of this code is not punishable.</b>",
+                "In accordance with Article 551,\n•All public and private health centres/Medium clinics can perform abortions on women who are less than 12 weeks pregnant.\n•Primary, general, and specialized hospitals, as well as MCH specialized centres, can perform abortions on women between 13- and 24-weeks pregnancy.\n•Article 551 allows for the termination of pregnancy between the ages of 24 and 28 weeks with specialized hospital care.\nIn accordance with Article 551, sub-article 1-A, where the pregnancy is the result of rape or incest pregnancy termination shall be carried out based on the disclosure by the girl/woman, noted in the medical record",
+                "Health care providers should identify, inform, educate, and enable adolescent clients seeking safe abortion services. Then conducting a clinical interview and examination with an adolescent client, ensures privacy (for both visual and audio) and confidentiality, and begins the interview with the least sensitive and threatening issues. Rather than directly asking about their own activities, inquire about those of their peers and friends. If someone accompanies the clients, ask the client whether the accompanist should be present with him/her during clinical examination or not (WHO 2018b: 40).",
+               
+                "Women centred Abortion care services for girls/young women have three key elements: choice, access and quality (FMoH 2014b: 9). Abortion care services include providing information on safe abortion procedures (options), legal requirements, pre-and post-abortion counselling and services, and post abortion contraceptive options.",
+                "The health care providers should identify and remove barriers to adolescent girls' having access to safe abortion services (WHO 2011b: 7). Adolescents who become pregnant unintentionally may feel embarrassed or ashamed. Health care providers can help to reduce the stigma by treating adolescent clients with dignity and compassion. Provide information about the implications of each treatment option and assist them in choosing the one that is best suited to their needs (WHO 2018b: 40). The information and counselling to be provided to girls/women should include: (FMoH, 2014b: 15)\n\n•What will be done during and after the procedure\n\n•Advantage and disadvantage of safe termination options,\n\n•Risks associated with the methods of termination of pregnancy both short- and long- term.\n•Resumption of menses\n\n•Follow-up care.", "",
+                "• Confirm a pregnancy and gestational age; refer for an ultrasound if unknown gestation and/or symptoms of ectopic pregnancy.\n• Provide information on legal requirements, eligibility, and access to abortion services. Determine contraindications to medication or aspiration methods based on obstetric, medical, and social history.\n• Provide options for continuing or terminating the pregnancy, and respect the client's ultimate decision.\n• Provide information on abortion procedures, potential complications, pain management, and when to seek help.\n• Provide abortion care and post-abortion care services. Confirm expulsion of products of conception from history, ultrasound, or levels of HCG.\n• Review options for contraception and initiate immediate use of the desired method.\n• Explore psychological response to abortion.",
+               
+                "All women undergoing pregnancy termination should sign a written consent to the procedure after receiving counselling. The health care institution and the health worker that provide the services have an ethical obligation not to disclose the information provided by the client unless permitted by her or ordered by a court of law.",
+                "Explain pain management options to the client. These options include:\n• Non-pharmacologic methods,\n• Pharmacologic methods (non-steroidal anti-inflammatory drugs, anxiolytics, and anesthetics)",
+                "All health institutions should provide termination of pregnancy by providing recommended methods depending on the gestational age. While organizing abortion care services; program planners and facility managers should ensure emergency abortion services/ lifesaving procedures on a 24/7days basis.",
+              
+                "The use of drugs to end a pregnancy is known as medical abortion. Mifepristone, followed by misoprostol, are the recommended methods for medical abortion (WHO 2018b: 24).",
+                "For medical management of induced abortion at <12 weeks of gestation the use of 200 mg mifepristone administered orally, followed 1–2 days later by 800 µg misoprostol administered vaginally, sublingually or buccally is recommended. The minimum recommended interval between the use of mifepristone and misoprostol is 24 hours. For the misoprostol-only regimen, the use of 800-µg misoprostol administered vaginally, sublingually or buccally is recommended (WHO 2018:24)."
           ],
-    "images": [ "assets/images/counselling.png",
+    "images": [ "assets/images/abortion.jpg",
+                "",
+                "",
+              
                 "",
                 "",
                 "",
+               
                 "",
                 "",
                 "",
+               
                 "",
                 "",
                 "",
-                "",
-                "",
-                "",
-                "",
+               
                 "",
                 ""]
 }

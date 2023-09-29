@@ -147,41 +147,46 @@ class _ReadingScreenState extends State<ReadingScreen> {
     }
 
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            backgroundColor: MyColors.grey_10,
-            floating: true,
-            pinned: false,
-            snap: false,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: MyColors.grey_60),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon:
-                    const Icon(Icons.bookmark_border, color: MyColors.grey_60),
-                onPressed: () {},
+      body: Scrollbar(
+        interactive: true,
+        thickness: 6,
+        radius: Radius.circular(30),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              backgroundColor: MyColors.grey_10,
+              floating: true,
+              pinned: false,
+              snap: false,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back, color: MyColors.grey_60),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
-              IconButton(
-                icon: Icon(
-                  isPlaying ? Icons.pause : Icons.volume_up,
-                  color: MyColors.grey_60,
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.bookmark_border,
+                      color: MyColors.grey_60),
+                  onPressed: () {},
                 ),
-                onPressed: _playPauseAudio, // Toggle play/pause
-              ),
-            ],
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate(guidelineItems),
+                IconButton(
+                  icon: Icon(
+                    isPlaying ? Icons.pause : Icons.volume_up,
+                    color: MyColors.grey_60,
+                  ),
+                  onPressed: _playPauseAudio, // Toggle play/pause
+                ),
+              ],
             ),
-          ),
-        ],
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate(guidelineItems),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

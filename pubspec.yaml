@@ -22,6 +22,9 @@ dependencies:
   shared_preferences: ^2.2.1
   lottie: ^2.6.0
   audioplayers: ^5.1.0
+  share: ^2.0.4
+  share_plus: ^7.1.0
+  restart_app: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/group_woman.jpg
     - assets/lotties/
     - assets/icon/
     - assets/fonts/

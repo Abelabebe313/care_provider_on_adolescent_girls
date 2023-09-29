@@ -1,6 +1,12 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/about/about_us.dart';
 import 'package:restart_app/restart_app.dart';
+import 'package:share_plus/share_plus.dart';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EndDrawers extends StatefulWidget {
   const EndDrawers({super.key});
@@ -10,6 +16,11 @@ class EndDrawers extends StatefulWidget {
 }
 
 class _EndDrawersState extends State<EndDrawers> {
+  Future<void> clearPreference(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove(key);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -65,9 +76,17 @@ class _EndDrawersState extends State<EndDrawers> {
                 fontSize: 16,
               ),
             ),
-            onTap: () {
-              // Handle Share This App action
-              Navigator.pop(context); // Close the drawer
+            onTap: () async {
+              // Share.share("com.example.care_provider_on_adolescent_girls_mobile");
+              final result = await Share.shareWithResult(
+                  'check out my website https://example.com');
+
+              if (result.status == ShareResultStatus.success) {
+                print('Thank you for sharing my website!');
+              } else {
+                log("Unabele to share");
+                print('Unable to share');
+              }
             },
           ),
           ListTile(
@@ -85,6 +104,24 @@ class _EndDrawersState extends State<EndDrawers> {
             onTap: () {
               // Handle Help action
               Navigator.pop(context); // Close the drawer
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.logout,
+              color: Color(0xFF0E5120),
+            ),
+            title: const Text(
+              'Log Out',
+              style: TextStyle(
+                fontFamily: 'Urbanist-Bold',
+                fontSize: 16,
+              ),
+            ),
+            onTap: () async{
+              await clearPreference('visited_before');
+              // exit(0);
+              Restart.restartApp();
             },
           ),
         ],

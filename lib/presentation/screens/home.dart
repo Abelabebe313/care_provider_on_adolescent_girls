@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
       'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
       'image': 'assets/images/counselling.png',
       'filename': 'chapter_2.json',
-      'tts_file_name': 'chapter_1.wav',
+      'tts_file_name': 'chapter_2.wav',
     },
     {
       'title': 'COMPREHENSIVE ABORTION CARE',

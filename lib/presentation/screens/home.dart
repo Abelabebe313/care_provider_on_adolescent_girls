@@ -22,37 +22,37 @@ class _HomeState extends State<Home> {
     {
       'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
       'image': 'assets/images/counselling.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_2.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'COMPREHENSIVE ABORTION CARE',
       'image': 'assets/images/mother_care.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_3.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'Prevention and Treatment of STIs/HIV',
       'image': 'assets/images/HIV.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_4.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'Maternal and newborn health care services',
       'image': 'assets/images/violence.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_5.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'Gender Based Violence',
       'image': 'assets/images/doctor_monitoring.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_6.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'ADOLESCENT NUTRITION SERVICES',
       'image': 'assets/images/nutrition.png',
-      'filename': 'chapter_1.json',
+      'filename': 'chapter_7.json',
       'tts_file_name': 'chapter_1.wav',
     },
   ];

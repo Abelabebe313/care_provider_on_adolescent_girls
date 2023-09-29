@@ -121,7 +121,7 @@ class _ReadingScreenState extends State<ReadingScreen> {
             fit: BoxFit.cover,
           ),
         ));
-      } else if (data.startsWith("x")) {
+      } else if (data.startsWith("_")) {
         guidelineItems.add(
           Padding(
             padding: const EdgeInsets.only(top: 5.0),

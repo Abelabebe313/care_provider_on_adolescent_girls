@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/home_cards.dart';
 import 'search/search_screen.dart';
-import '../widgets/enddrawer.dart';
+import '../../widgets/enddrawer.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -21,15 +21,15 @@ class _HomeState extends State<Home> {
     },
     {
       'title': 'CONTRACEPTIVE COUNSELLING AND SERVICES',
-      'image': 'assets/images/counselling.png',
+      'image': 'assets/images/doctor_monitoring.png',
       'filename': 'chapter_2.json',
       'tts_file_name': 'chapter_2.wav',
     },
     {
       'title': 'COMPREHENSIVE ABORTION CARE',
-      'image': 'assets/images/mother_care.png',
+      'image': 'assets/images/13.png',
       'filename': 'chapter_3.json',
-      'tts_file_name': 'chapter_1.wav',
+      'tts_file_name': 'chapter_3.wav',
     },
     {
       'title': 'Prevention and Treatment of STIs/HIV',
@@ -39,13 +39,13 @@ class _HomeState extends State<Home> {
     },
     {
       'title': 'Maternal and newborn health care services',
-      'image': 'assets/images/violence.png',
+      'image': 'assets/images/mother_care.png',
       'filename': 'chapter_5.json',
       'tts_file_name': 'chapter_1.wav',
     },
     {
       'title': 'Gender Based Violence',
-      'image': 'assets/images/doctor_monitoring.png',
+      'image': 'assets/images/violence.png',
       'filename': 'chapter_6.json',
       'tts_file_name': 'chapter_1.wav',
     },

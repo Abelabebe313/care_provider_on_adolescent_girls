@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/home_cards.dart';
-import 'package:care_provider_on_adolescent_girls_mobile/presentation/screens/pdf_viewer/view.dart';
-import 'package:care_provider_on_adolescent_girls_mobile/presentation/widgets/enddrawer.dart';
+import 'package:care_provider_on_adolescent_girls_mobile/widgets/enddrawer.dart';
 import 'search/search_screen.dart';
 import 'package:flutter/material.dart';
 

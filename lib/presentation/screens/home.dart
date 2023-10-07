@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
   late PageController _pageController;
   late Timer _timer;
   int _currentPage = 0;
-  int current = 0;
+
   @override
   void initState() {
     super.initState();
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
 
   void _startAutoScroll() {
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (_currentPage < 4) {
+      if (_currentPage < 2) {
         _currentPage++;
       } else {
         _currentPage = 0;
@@ -189,15 +189,13 @@ class _HomeState extends State<Home> {
                 height: 10,
               ),
               // Slider poster
-              Container(
+              SizedBox(
                 height: 130,
                 child: PageView(
                   controller: _pageController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  // scrollDirection: Axis.horizontal,
                   children: [
                     SizedBox(
-                      width: (MediaQuery.of(context).size.width),
+                      width: MediaQuery.of(context).size.width,
                       child: ClipRRect(
                         child: Image.asset(
                           'assets/images/slider 4.jpg',
@@ -208,7 +206,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     SizedBox(
-                      width: (MediaQuery.of(context).size.width),
+                      width: MediaQuery.of(context).size.width,
                       child: ClipRRect(
                         child: Image.asset(
                           'assets/images/slider 2.png.jpg',
@@ -219,7 +217,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     SizedBox(
-                      width: (MediaQuery.of(context).size.width),
+                      width: MediaQuery.of(context).size.width,
                       child: ClipRRect(
                         child: Image.asset(
                           'assets/images/slider 4.jpg',
@@ -232,7 +230,6 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-
               const SizedBox(
                 height: 10,
               ),
@@ -245,8 +242,8 @@ class _HomeState extends State<Home> {
                   'Contents',
                   style: TextStyle(
                     fontFamily: 'Urbanist-Bold',
-                    color: Color(0xFF0E5120),
-                    fontSize: 20,
+                    color: Color.fromARGB(216, 14, 81, 32),
+                    fontSize: 23,
                   ),
                 ),
               ),

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../presentation/screens/bookmark/bookmark_page.dart';
+import 'help_dialog.dart';
 
 class EndDrawers extends StatefulWidget {
   const EndDrawers({super.key});
@@ -69,23 +70,24 @@ class _EndDrawersState extends State<EndDrawers> {
               );
             },
           ),
-          ListTile(
-            leading: const Icon(
-              Icons.privacy_tip,
-              color: Color(0xFF0E5120),
-            ),
-            title: const Text(
-              'Privacy',
-              style: TextStyle(
-                fontFamily: 'Urbanist-Bold',
-                fontSize: 16,
-              ),
-            ),
-            onTap: () {
-              // Handle Privacy action
-              Navigator.pop(context); // Close the drawer
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(
+          //     Icons.privacy_tip,
+          //     color: Color(0xFF0E5120),
+          //   ),
+          //   title: const Text(
+          //     'Privacy',
+          //     style: TextStyle(
+          //       fontFamily: 'Urbanist-Bold',
+          //       fontSize: 16,
+          //     ),
+          //   ),
+          //   onTap: () {
+          //     // Handle Privacy action
+          //     Navigator.pop(context); // Close the drawer
+          //   },
+          // ),
+
           ListTile(
             leading: const Icon(
               Icons.share,
@@ -99,9 +101,12 @@ class _EndDrawersState extends State<EndDrawers> {
               ),
             ),
             onTap: () async {
+              // close the drawer
+              Navigator.pop(context);
+
               // Share.share("com.example.care_provider_on_adolescent_girls_mobile");
               final result = await Share.shareWithResult(
-                  'check out my website https://example.com');
+                  'Center for Adolescent Girls Health. Download The App https://play.google.com/store/apps/details?id=com.example.care_provider_on_adolescent_girls_mobile');
 
               if (result.status == ShareResultStatus.success) {
                 print('Thank you for sharing my website!');
@@ -117,15 +122,19 @@ class _EndDrawersState extends State<EndDrawers> {
               color: Color(0xFF0E5120),
             ),
             title: const Text(
-              'Help',
+              'FAQs',
               style: TextStyle(
                 fontFamily: 'Urbanist-Bold',
                 fontSize: 16,
               ),
             ),
             onTap: () {
-              // Handle Help action
-              Navigator.pop(context); // Close the drawer
+              // FAQDialog()
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => FAQScreen(),
+                ),
+              );
             },
           ),
           ListTile(

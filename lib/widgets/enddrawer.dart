@@ -8,6 +8,8 @@ import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../presentation/screens/bookmark/bookmark_page.dart';
+
 class EndDrawers extends StatefulWidget {
   const EndDrawers({super.key});
 
@@ -43,6 +45,26 @@ class _EndDrawersState extends State<EndDrawers> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => AboutUs(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.bookmark_add_outlined,
+              color: Color(0xFF0E5120),
+            ),
+            title: const Text(
+              'Bookmarks',
+              style: TextStyle(
+                fontFamily: 'Urbanist-Bold',
+                fontSize: 16,
+              ),
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => BookmarkPage(),
                 ),
               );
             },
@@ -118,7 +140,7 @@ class _EndDrawersState extends State<EndDrawers> {
                 fontSize: 16,
               ),
             ),
-            onTap: () async{
+            onTap: () async {
               await clearPreference('visited_before');
               // exit(0);
               Restart.restartApp();

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_colors.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_text.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _ReadingScreenState extends State<ReadingScreen> {
   bool isPlaying = false;
   bool isBookmarked = false;
   late int expandedIndex; // Track the index of the currently expanded panel
-
+  String theTextToBookmark = "Sample";
   @override
   void initState() {
     super.initState();
@@ -192,6 +193,11 @@ class _ReadingScreenState extends State<ReadingScreen> {
               onPressed: () {
                 setState(() {
                   isBookmarked = !isBookmarked;
+                  if (isBookmarked) {
+                    BookmarkUtil.addBookmark(theTextToBookmark);
+                  } else {
+                    BookmarkUtil.removeBookmark(theTextToBookmark);
+                  }
                 });
               },
             ),
@@ -242,4 +248,28 @@ class ExpansionItem {
     required this.content,
     required this.isExpanded,
   });
+}
+
+class BookmarkUtil {
+  static const String _bookmarkKey = 'bookmarks';
+
+  static Future<List<String>> getBookmarks() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? bookmarks = prefs.getStringList(_bookmarkKey);
+    return bookmarks ?? [];
+  }
+
+  static Future<void> addBookmark(String text) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> bookmarks = await getBookmarks();
+    bookmarks.add(text);
+    await prefs.setStringList(_bookmarkKey, bookmarks);
+  }
+
+  static Future<void> removeBookmark(String text) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> bookmarks = await getBookmarks();
+    bookmarks.remove(text);
+    await prefs.setStringList(_bookmarkKey, bookmarks);
+  }
 }

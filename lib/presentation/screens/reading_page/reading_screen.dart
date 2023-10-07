@@ -221,7 +221,7 @@ class _ReadingScreenState extends State<ReadingScreen> {
                       ),
                     ),
                     backgroundColor: MyColors.grey_90,
-                    duration: Duration(milliseconds: 2000),
+                    duration: const Duration(milliseconds: 2000),
                   ),
                 );
               },

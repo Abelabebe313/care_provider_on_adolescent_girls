@@ -7,6 +7,8 @@ import '../../../core/my_text.dart';
 import '../reading_page/reading_screen.dart';
 
 class BookmarkPage extends StatefulWidget {
+  const BookmarkPage({super.key});
+
   @override
   _BookmarkPageState createState() => _BookmarkPageState();
 }
@@ -80,7 +82,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bookmarks'),
+        title: const Text('Bookmarks'),
       ),
       body: ListView.builder(
         itemCount: bookmarks.length,
@@ -101,17 +103,17 @@ class _BookmarkPageState extends State<BookmarkPage> {
           }
 
           return Card(
-              margin: EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(1.0),
                         child: IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             _removeBookmark(bookmarkedText);
                           },

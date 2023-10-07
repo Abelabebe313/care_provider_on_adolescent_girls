@@ -90,69 +90,94 @@ class _HomeState extends State<Home> {
     });
   }
 
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void onDrawerItemClicked(String name) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xffF8FAFF),
-      appBar: AppBar(
+    return RefreshIndicator(
+      onRefresh: () async {
+        await Future.delayed(const Duration(seconds: 1));
+        setState(() {});
+      },
+      child: Scaffold(
+        key: scaffoldKey,
         backgroundColor: const Color(0xffF8FAFF),
-        title: Center(
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: Image.asset('assets/images/title.png'),
+        appBar: AppBar(
+          backgroundColor: const Color(0xffF8FAFF),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.sort,
+              color: Colors.black,
+              size: 37,
+            ),
+            onPressed: () {
+              scaffoldKey.currentState!.openDrawer();
+            },
+          ),
+          title: Center(
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Image.asset('assets/images/title.png'),
+            ),
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => SearchResult(dataList: data_list),
-                  ),
-                );
-              },
-              child: Center(
-                child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: IgnorePointer(
-                    ignoring: true, // Disable interaction with the text field
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search content...",
-                        hintStyle: TextStyle(
-                          fontFamily: 'Poppins-ExtraLight',
-                          color: Colors.grey.shade400,
-                          fontSize: 15,
-                        ),
-                        contentPadding: const EdgeInsets.only(
-                            left: 10, top: 12, bottom: 12), // Add padding here
-                        border: InputBorder.none,
-                        suffixIcon: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF0E5120),
-                            borderRadius: BorderRadius.circular(12),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => SearchResult(dataList: data_list),
+                    ),
+                  );
+                },
+                child: Center(
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: IgnorePointer(
+                      ignoring: true, // Disable interaction with the text field
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Search content...",
+                          hintStyle: TextStyle(
+                            fontFamily: 'Poppins-ExtraLight',
+                            color: Colors.grey.shade400,
+                            fontSize: 15,
                           ),
-                          child: IconButton(
-                            icon: const Icon(
-                              Icons.search,
-                              size: 32,
+                          contentPadding: const EdgeInsets.only(
+                              left: 10,
+                              top: 12,
+                              bottom: 12), // Add padding here
+                          border: InputBorder.none,
+                          suffixIcon: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF0E5120),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            color: Colors.white,
-                            onPressed: () {},
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.search,
+                                size: 32,
+                              ),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
                           ),
                         ),
                       ),
@@ -160,77 +185,77 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // Slider poster
-            Container(
-              height: 130,
-              child: PageView(
-                controller: _pageController,
-                physics: NeverScrollableScrollPhysics(),
-                // scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width),
-                    child: ClipRRect(
-                      child: Image.asset(
-                        'assets/images/slider 4.jpg',
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width),
-                    child: ClipRRect(
-                      child: Image.asset(
-                        'assets/images/slider 2.png.jpg',
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width),
-                    child: ClipRRect(
-                      child: Image.asset(
-                        'assets/images/slider 4.jpg',
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                    ),
-                  ),
-                ],
+              const SizedBox(
+                height: 10,
               ),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 5,
-              ),
-              child: Text(
-                'Contents',
-                style: TextStyle(
-                  fontFamily: 'Urbanist-Bold',
-                  color: Color(0xFF0E5120),
-                  fontSize: 20,
+              // Slider poster
+              Container(
+                height: 130,
+                child: PageView(
+                  controller: _pageController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  // scrollDirection: Axis.horizontal,
+                  children: [
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width),
+                      child: ClipRRect(
+                        child: Image.asset(
+                          'assets/images/slider 4.jpg',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width),
+                      child: ClipRRect(
+                        child: Image.asset(
+                          'assets/images/slider 2.png.jpg',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width),
+                      child: ClipRRect(
+                        child: Image.asset(
+                          'assets/images/slider 4.jpg',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            homeCards(data_list, context),
-          ],
+
+              const SizedBox(
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                child: Text(
+                  'Contents',
+                  style: TextStyle(
+                    fontFamily: 'Urbanist-Bold',
+                    color: Color(0xFF0E5120),
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              homeCards(data_list, context),
+            ],
+          ),
         ),
+        drawer: const EndDrawers(),
       ),
-      endDrawer: EndDrawers(),
     );
   }
 }

@@ -28,7 +28,7 @@ class _EndDrawersState extends State<EndDrawers> {
     return Drawer(
       child: ListView(
         children: [
-          Image.asset('assets/images/group_woman.jpg'),
+          Image.asset('assets/images/logo.png'),
           ListTile(
             leading: const Icon(
               Icons.info_outline,

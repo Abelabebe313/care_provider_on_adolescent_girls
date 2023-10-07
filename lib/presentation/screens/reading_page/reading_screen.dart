@@ -121,13 +121,18 @@ class _ReadingScreenState extends State<ReadingScreen> {
       headerBuilder: (BuildContext context, bool isExpanded) {
         return ListTile(
           contentPadding: const EdgeInsets.only(left: 10),
-          title: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(title.substring(1).replaceAll('\\n', '\n'),
-                style: MyText.headline(context)!.copyWith(
-                    color: MyColors.grey_90,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
+          title: GestureDetector(
+            onTap: () {
+              _onPanelTapped(index);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(title.substring(1).replaceAll('\\n', '\n'),
+                  style: MyText.headline(context)!.copyWith(
+                      color: MyColors.grey_90,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
+            ),
           ),
         );
       },

@@ -201,11 +201,10 @@ class _ReadingScreenState extends State<ReadingScreen> {
                 setState(() {
                   isBookmarked = !isBookmarked;
                   if (isBookmarked) {
-                    BookmarkUtil.addBookmark(
-                        titleBookmark + "|" + contentBookmark);
+                    BookmarkUtil.addBookmark("$titleBookmark|$contentBookmark");
                   } else {
                     BookmarkUtil.removeBookmark(
-                        titleBookmark + "|" + contentBookmark);
+                        "$titleBookmark|$contentBookmark");
                   }
                 });
 

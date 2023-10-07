@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_colors.dart';
 import 'package:care_provider_on_adolescent_girls_mobile/core/my_text.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,8 @@ class ReadingScreen extends StatefulWidget {
 class _ReadingScreenState extends State<ReadingScreen> {
   late AudioPlayer audioPlayer;
   bool isPlaying = false;
+  bool isBookmarked = false;
+  late int expandedIndex; // Track the index of the currently expanded panel
 
   @override
   void initState() {
@@ -28,6 +32,21 @@ class _ReadingScreenState extends State<ReadingScreen> {
       setState(() {
         isPlaying = false;
       });
+    });
+
+    // First panel is expanded by default
+    expandedIndex = 0;
+  }
+
+  void _onPanelTapped(int index) {
+    log("clicked: $index");
+    setState(() {
+      // Toggle the expansion state
+      if (expandedIndex == index) {
+        expandedIndex = -1; // Collapse the panel if it's already expanded
+      } else {
+        expandedIndex = index; // Expand the tapped panel
+      }
     });
   }
 
@@ -93,101 +112,129 @@ class _ReadingScreenState extends State<ReadingScreen> {
     return textSpans;
   }
 
+  ExpansionPanel buildExpansionPanel(int index) {
+    var title = widget.guideline.titles![index];
+    var image = widget.guideline.images![index];
+    var content = widget.guideline.content![index];
+
+    return ExpansionPanel(
+      headerBuilder: (BuildContext context, bool isExpanded) {
+        return ListTile(
+          contentPadding: const EdgeInsets.only(left: 10),
+          title: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(title.substring(1).replaceAll('\\n', '\n'),
+                style: MyText.headline(context)!.copyWith(
+                    color: MyColors.grey_90,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold)),
+          ),
+        );
+      },
+      body: Column(
+        children: [
+          // Display image if available
+          if (image.isNotEmpty && image.startsWith("assets/"))
+            Image.asset(
+              Img.get(image),
+              fit: BoxFit.cover,
+              height: 200,
+            ),
+          // Display description if available and if expanded
+          if (expandedIndex == index && content.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: TextSpan(
+                  children: parseText(
+                    content.replaceAll('\\n', '\n'),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+      isExpanded: expandedIndex == index,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> guidelineItems = [];
-
-    // Combine titles, images, and content into a single list
-    List<String> combinedData = [];
-    for (var i = 0; i < widget.guideline.titles!.length; i++) {
-      combinedData.add(widget.guideline.titles![i]);
-      combinedData.add(widget.guideline.images![i]);
-      combinedData.add(widget.guideline.content![i]);
-    }
-
-    for (var data in combinedData) {
-      // Check if the data is an image path
-      if (data == "") {
-        // do nothing
-      } else if (data.startsWith("assets/")) {
-        guidelineItems.add(
-          Container(height: 20),
-        );
-        guidelineItems.add(SizedBox(
-          width: double.infinity,
-          height: 200,
-          child: Image.asset(
-            Img.get(data),
-            fit: BoxFit.cover,
-          ),
-        ));
-      } else if (data.startsWith("_")) {
-        guidelineItems.add(
-          Padding(
-            padding: const EdgeInsets.only(top: 5.0),
-            child: Text(data.substring(1).replaceAll('\\n', '\n'),
-                style: MyText.headline(context)!.copyWith(
-                    color: MyColors.grey_90, fontWeight: FontWeight.bold)),
-          ),
-        );
-      } else {
-        guidelineItems.add(const Divider(height: 20));
-        guidelineItems.add(Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: RichText(
-            textAlign: TextAlign.justify,
-            text: TextSpan(
-              children: parseText(
-                data.replaceAll('\\n', '\n'),
-              ),
-            ),
-          ),
-        ));
-      }
-    }
-
     return Scaffold(
-      body: Scrollbar(
-        interactive: true,
-        thickness: 6,
-        radius: Radius.circular(30),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              backgroundColor: MyColors.grey_10,
-              floating: true,
-              pinned: false,
-              snap: false,
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back, color: MyColors.grey_60),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+        body: Scrollbar(
+      interactive: true,
+      thickness: 6,
+      radius: const Radius.circular(30),
+      child: CustomScrollView(slivers: <Widget>[
+        SliverAppBar(
+          backgroundColor: MyColors.grey_10,
+          floating: true,
+          pinned: false,
+          snap: false,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: MyColors.grey_60),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                color: isBookmarked ? Colors.blue : MyColors.grey_60,
               ),
-              actions: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.bookmark_border,
-                      color: MyColors.grey_60),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: Icon(
-                    isPlaying ? Icons.pause : Icons.volume_up,
-                    color: MyColors.grey_60,
-                  ),
-                  onPressed: _playPauseAudio, // Toggle play/pause
-                ),
-              ],
+              onPressed: () {
+                setState(() {
+                  isBookmarked = !isBookmarked;
+                });
+              },
             ),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              sliver: SliverList(
-                delegate: SliverChildListDelegate(guidelineItems),
+            IconButton(
+              icon: Icon(
+                isPlaying ? Icons.pause : Icons.volume_up,
+                color: MyColors.grey_60,
               ),
+              onPressed: _playPauseAudio,
             ),
           ],
         ),
-      ),
-    );
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: widget.guideline.titles!.length,
+              (BuildContext context, int index) {
+                return ExpansionPanelList(
+                  dividerColor: Colors.black,
+                  elevation: 1,
+                  expandedHeaderPadding: const EdgeInsets.all(0),
+                  expansionCallback: (int panelIndex, bool isExpanded) {
+                    _onPanelTapped(index); // Handle expansion state
+                  },
+                  children: [
+                    buildExpansionPanel(index),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ]),
+    ));
   }
+}
+
+class ExpansionItem {
+  final String title;
+  final String image;
+  final String content;
+  bool isExpanded;
+
+  ExpansionItem({
+    required this.title,
+    required this.image,
+    required this.content,
+    required this.isExpanded,
+  });
 }

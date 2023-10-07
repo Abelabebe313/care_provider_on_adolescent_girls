@@ -183,47 +183,47 @@ final List<Onboard> demo_data = [
   Onboard(
     title: 'Health promotion and \n'
         'SRH counselling services',
-    image: 'assets/lotties/3.json',
+    image: 'assets/images/habesha_girl.png',
     note:
         'Encourage adolescent clients to know the physical, psychological and social aspects of Sexual and reproductive health(SRH) care.',
   ),
   Onboard(
     title: 'Contraceptive counselling\n'
         '\t\t\t          and services',
-    image: 'assets/lotties/7.json',
+    image: 'assets/images/contraceptive.png',
     note:
         'Service providers should provide counselling and services to adolescent girls to improve access to contraceptive services and to reduce occurrence of unplanned pregnancies',
   ),
   Onboard(
     title: 'Comprehensive abortion\n'
         '\t\t\t                care',
-    image: 'assets/lotties/11.json',
+    image: 'assets/images/Diet Nutrition.jpg',
     note:
         'Health care providers provide a variety of individualized, culturally sensitive abortion-related care services for women.',
   ),
   Onboard(
     title: 'Prevention & treatment\n'
         '\t\t\t         of STIs/HIV',
-    image: 'assets/lotties/8.json',
+    image: 'assets/images/iconmonstr-medical-16-240.png',
     note:
         'Sexually transmitted infections can be controlled through providing information and services',
   ),
   Onboard(
     title: 'Maternal & newborn\n'
         'health care services',
-    image: 'assets/lotties/9.json',
+    image: 'assets/images/habesha_mom.png',
     note:
         'Healthcare providers who are motivated, competent, and compassionate should Create a safe, warm environment for the mother and newborn with high-quality care',
   ),
   Onboard(
     title: 'Adolescent Nutrition',
-    image: 'assets/lotties/4.json',
+    image: 'assets/images/Diet Nutrition.jpg',
     note:
         "Protein, iron, and other micro nutrients are required to support adolescent growth and meet the body's increased demand for iron during menstruation.",
   ),
   Onboard(
     title: 'Gender-based violence',
-    image: 'assets/lotties/6.json',
+    image: 'assets/images/violence.png',
     note:
         'Many women and girls are victims of violence. Midwives and other service providers should identify and assist GBV-affected women and girls',
   ),
@@ -261,7 +261,7 @@ class onboardingContent extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.7,
           height: MediaQuery.of(context).size.height * 0.4,
           child: Center(
-            child: Lottie.asset(image),
+            child: Image.asset(image), //Lottie.asset(image),
           ),
         ),
         Text(

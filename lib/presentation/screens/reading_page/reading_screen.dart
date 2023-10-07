@@ -24,7 +24,9 @@ class _ReadingScreenState extends State<ReadingScreen> {
   bool isPlaying = false;
   bool isBookmarked = false;
   late int expandedIndex; // Track the index of the currently expanded panel
-  String theTextToBookmark = "Sample";
+  String titleBookmark = "Title";
+  String contentBookmark = "Content";
+
   @override
   void initState() {
     super.initState();
@@ -37,6 +39,9 @@ class _ReadingScreenState extends State<ReadingScreen> {
 
     // First panel is expanded by default
     expandedIndex = 0;
+
+    titleBookmark = widget.guideline.titles![0];
+    contentBookmark = widget.guideline.content![0];
   }
 
   void _onPanelTapped(int index) {
@@ -47,6 +52,8 @@ class _ReadingScreenState extends State<ReadingScreen> {
         expandedIndex = -1; // Collapse the panel if it's already expanded
       } else {
         expandedIndex = index; // Expand the tapped panel
+        titleBookmark = widget.guideline.titles![0];
+        contentBookmark = widget.guideline.content![0];
       }
     });
   }
@@ -188,17 +195,35 @@ class _ReadingScreenState extends State<ReadingScreen> {
             IconButton(
               icon: Icon(
                 isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: isBookmarked ? Colors.blue : MyColors.grey_60,
+                color: isBookmarked ? Colors.green : MyColors.grey_60,
               ),
               onPressed: () {
                 setState(() {
                   isBookmarked = !isBookmarked;
                   if (isBookmarked) {
-                    BookmarkUtil.addBookmark(theTextToBookmark);
+                    BookmarkUtil.addBookmark(
+                        titleBookmark + "|" + contentBookmark);
                   } else {
-                    BookmarkUtil.removeBookmark(theTextToBookmark);
+                    BookmarkUtil.removeBookmark(
+                        titleBookmark + "|" + contentBookmark);
                   }
                 });
+
+                // display snackbar to show bookmark added
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? "${titleBookmark.substring(1).replaceAll('\\n', '\n')} Bookmark added"
+                          : "${titleBookmark.substring(1).replaceAll('\\n', '\n')} Bookmark removed",
+                      style: MyText.body1(context)!.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                    backgroundColor: MyColors.grey_90,
+                    duration: Duration(milliseconds: 2000),
+                  ),
+                );
               },
             ),
             IconButton(

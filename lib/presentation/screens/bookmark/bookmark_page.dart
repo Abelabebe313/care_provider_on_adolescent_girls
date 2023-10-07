@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+import '../../../core/my_colors.dart';
+import '../../../core/my_text.dart';
 import '../reading_page/reading_screen.dart';
 
 class BookmarkPage extends StatefulWidget {
@@ -9,7 +13,8 @@ class BookmarkPage extends StatefulWidget {
 
 class _BookmarkPageState extends State<BookmarkPage> {
   List<String> bookmarks = [];
-
+  String title = 'Title';
+  String content = 'Content';
   @override
   void initState() {
     super.initState();
@@ -28,6 +33,49 @@ class _BookmarkPageState extends State<BookmarkPage> {
     _loadBookmarks();
   }
 
+  List<InlineSpan> parseText(String input) {
+    List<InlineSpan> textSpans = [];
+
+    RegExp exp = RegExp(r'<b>(.*?)<\/b>');
+
+    List<RegExpMatch> matches = exp.allMatches(input).toList();
+
+    int previousMatchEnd = 0;
+
+    for (RegExpMatch match in matches) {
+      // Add the non-bold text
+      textSpans.add(
+        TextSpan(
+          text: input.substring(previousMatchEnd, match.start),
+          style: MyText.subhead(context)!.copyWith(color: MyColors.grey_80),
+        ),
+      );
+
+      // Add the bold text
+      textSpans.add(
+        TextSpan(
+          text: match.group(1), // Extract the text within <b> tags
+          style: MyText.subhead(context)!
+              .copyWith(color: MyColors.grey_80, fontWeight: FontWeight.bold),
+        ),
+      );
+
+      previousMatchEnd = match.end;
+    }
+
+    // Add any remaining non-bold text
+    if (previousMatchEnd < input.length) {
+      textSpans.add(
+        TextSpan(
+          text: input.substring(previousMatchEnd),
+          style: MyText.subhead(context)!.copyWith(color: MyColors.grey_80),
+        ),
+      );
+    }
+
+    return textSpans;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,18 +86,60 @@ class _BookmarkPageState extends State<BookmarkPage> {
         itemCount: bookmarks.length,
         itemBuilder: (context, index) {
           String bookmarkedText = bookmarks[index];
+
+          List<String> parts = bookmarkedText.split('|');
+
+          if (parts.length >= 2) {
+            title = parts[0].trim(); // Trim to remove leading/trailing spaces
+            content = parts[1].trim(); // Trim to remove leading/trailing spaces
+
+            // Now you can use the 'title' and 'content' variables as needed.
+            log('Bookmark Loadded');
+          } else {
+            // Handle the case where the bookmarked text does not contain '|'
+            log('Invalid bookmark format');
+          }
+
           return Card(
-            margin: EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Text(bookmarkedText),
-              trailing: IconButton(
-                icon: Icon(Icons.delete),
-                onPressed: () {
-                  _removeBookmark(bookmarkedText);
-                },
-              ),
-            ),
-          );
+              margin: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {
+                            _removeBookmark(bookmarkedText);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(title.substring(1).replaceAll('\\n', '\n'),
+                        style: MyText.headline(context)!.copyWith(
+                            color: MyColors.grey_90,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RichText(
+                      textAlign: TextAlign.justify,
+                      text: TextSpan(
+                        children: parseText(
+                          content.replaceAll('\\n', '\n'),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ));
         },
       ),
     );
